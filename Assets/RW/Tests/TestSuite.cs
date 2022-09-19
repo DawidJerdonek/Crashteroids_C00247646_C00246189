@@ -120,7 +120,7 @@ public class TestSuite
 
 
     [UnityTest]
-    public IEnumerator ScoreResetsOnGameOver()
+    public IEnumerator ScoreResetsOnReset()
     {
         game.score = 5;
 
