@@ -89,4 +89,32 @@ public class TestSuite
         // 2
         Assert.AreEqual(game.score, 1);
     }
+
+    [UnityTest]
+    public IEnumerator PlayerLeftMovement()
+    {
+        Vector2 oldPlayerPos = game.GetShip().transform.position;
+
+        game.GetShip().MoveLeft();
+
+        Vector2 newPlayerPos = game.GetShip().transform.position;
+
+        yield return new WaitForSeconds(0.1f);
+
+        Assert.Less(newPlayerPos.x, oldPlayerPos.x);
+    }
+
+    [UnityTest]
+    public IEnumerator PlayerRightMovement()
+    {
+        Vector2 oldPlayerPos = game.GetShip().transform.position;
+
+        game.GetShip().MoveRight();
+
+        Vector2 newPlayerPos = game.GetShip().transform.position;
+
+        yield return new WaitForSeconds(0.1f);
+
+        Assert.Greater(newPlayerPos.x, oldPlayerPos.x);
+    }
 }
