@@ -117,4 +117,19 @@ public class TestSuite
 
         Assert.Greater(newPlayerPos.x, oldPlayerPos.x);
     }
+
+
+    [UnityTest]
+    public IEnumerator ScoreResetsOnGameOver()
+    {
+        game.score = 5;
+
+        game.NewGame();
+
+        yield return new WaitForSeconds(0.1f);
+
+        Assert.AreEqual(game.score, 0);
+
+    }
+
 }
